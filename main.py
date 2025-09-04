@@ -42,12 +42,12 @@ trunks_sheet = pygame.image.load("assets\images\\trunks\swordsman spaced.xcf").c
 
 
 #frames in each animation
-#idle,jump,walk run, attack 1, attack 2, attack 3, charge attack, block, get hit, get launched, recover 1 , recover 2
-SHADOW_ANIMATION_STEPS = [6,12,10,7,8,10,21,4,13,13]
+#idle,jump,walk run, attack 1, attack 2, attack 3, charge attack, block, get hit, death, recover 1 , recover 2
+SHADOW_ANIMATION_STEPS = [6,12,18,7,8,10,21,5,13,13]
 KNUCKLES_ANIMATION_STEPS = [8,12,8,6,6,16,14,13,3,3,16,9]
 
-#idle,jump,move front/back, attack 1 , attack 2, attack 3,charge attack,block, get hit, get launched,reset
-TRUNKS_ANIMATION_STEPS = [7,7,2,4,6,4,10,3,7,8]
+#idle,jump,move front/back, attack 1 , attack 2, attack 3,charge attack,block, get hit, death,reset
+TRUNKS_ANIMATION_STEPS = [7,7,2,4,6,4,10,3,4,8]
 FRIEZA_ANIMATION_STEPS =[5,7,2,2,9,3,4,6,2,4,3,5]
 #function for draw background
 def draw_bg():
