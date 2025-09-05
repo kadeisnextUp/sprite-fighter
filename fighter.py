@@ -18,6 +18,7 @@ class Fighter():
         self.attack_type = 0
         self.attack_cooldown = 0
         self.hit = False
+        self.block = False
         self.health = 100
         self.alive = True
 
@@ -76,6 +77,11 @@ class Fighter():
                 #ranged attack
                 if key[pygame.K_e]:
                     self.attack_type = 2
+            #block
+            if key[pygame.K_f]:
+                self.block = True
+            else:
+                self.block = False
         #applies gravity
         self.vel_y+= GRAVITY
         dy += self.vel_y
@@ -113,7 +119,10 @@ class Fighter():
 
         
         #check to see what action is happening
-        if self.health <= 0:
+        if self.block:
+            self.update_action(7)
+
+        elif self.health <= 0:
             self.health = 0
             self.alive = False
             self.update_action(9)
@@ -146,6 +155,10 @@ class Fighter():
                 self.frame_index = len(self.animation_list[self.action])-1
             else:
                 self.frame_index = 0
+
+                #check if  holding block button
+                if self.action == 7:
+                    self.frame_index = len(self.animation_list[self.action])-1
                 #check if an attack was executed
                 if self.action == 3 or self.action == 4:
                     self.attacking = False
@@ -171,7 +184,7 @@ class Fighter():
         if self.attack_cooldown == 0:
             self.attacking = True
             attacking_rect = pygame.Rect(self.rect.centerx - (2*self.rect.width*self.flip), self.rect.y, 1 * self.rect.width, self.rect.height)
-            if attacking_rect.colliderect(target.rect):
+            if attacking_rect.colliderect(target.rect) and target.block == False:
                 target.health -= 10
                 target.hit = True
             #for testing purposes
