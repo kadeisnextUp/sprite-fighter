@@ -116,24 +116,17 @@ class Fighter():
 
     #animation update
     def update(self):
-
-        
-        #check to see what action is happening
         if self.block:
-            self.update_action(7)
-
+            self.update_action(7)  
         elif self.health <= 0:
             self.health = 0
             self.alive = False
-            self.update_action(9)
+            self.update_action(9) 
         elif self.hit:
             self.update_action(8)
             self.hit = False
         elif self.attacking:
-            if self.attack_type == 1:
-                self.update_action(3)
-            elif self.attack_type == 2:
-                self.update_action(4)
+            self.update_action(3 if self.attack_type == 1 else 4)
             self.attacking = False
         elif self.jump:
             self.update_action(1)
@@ -142,13 +135,9 @@ class Fighter():
         else:
             self.update_action(0)
 
-        
-        cooldown = 95
-        #update image
+        cooldown = 90
         self.image = self.animation_list[self.action][self.frame_index]
-        if pygame.time.get_ticks() - self.update_time > cooldown:
-            self.frame_index+=1
-            self.update_time = pygame.time.get_ticks()
+
         #check if animation has finished
         if self.frame_index >= len(self.animation_list[self.action]):
             if not self.alive:
@@ -169,7 +158,6 @@ class Fighter():
                     self.hit = False
                     self.attacking = False
                     self.attack_cooldown = 20
-
 
     #checking if the new action is different from previous
     def update_action(self, new_action):
