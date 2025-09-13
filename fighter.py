@@ -6,7 +6,7 @@ class Fighter():
         self.offset = data[2]
         self.flip = flip
         self.animation_list = self.load_images(sprite_sheet, animation_steps)
-        self.action = 0 #0: idle #1:jump #2 run #3 attack1 #4 attack2 #5 block #6 getHit #7 getlauched #8 death
+        self.action = 0 #0: idle #1:jump #2 run #3 attack1 #4 attack2 #5 attack3 #6 charge attack #7 block #8 hit #9 death
         self.frame_index = 0
         self.image = self.animation_list[self.action][self.frame_index]
         self.update_time = pygame.time.get_ticks()

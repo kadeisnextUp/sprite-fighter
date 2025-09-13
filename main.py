@@ -37,8 +37,8 @@ TRUNKS_DATA = [TRUNKS_SIZE,TRUNKS_SCALE,TRUNKS_OFFSET]
 bg_image = pygame.image.load("assets\images\stages\chamber 2.jpg").convert_alpha()
 
 #spritesheets
-shadow_sheet = pygame.image.load("assets\images\shadow\shadow spaced.xcf").convert_alpha()
-trunks_sheet = pygame.image.load("assets\images\\trunks\swordsman spaced.xcf").convert_alpha()
+shadow_sheet = pygame.image.load("assets\\images\\shadow\\shadow spaced.xcf").convert_alpha()
+trunks_sheet = pygame.image.load("assets\\images\\trunks\\swordsman spaced.xcf").convert_alpha()
 #knuckles_sheet = pygame.image.load("").convert_alpha()
 #frieza_sheet = pygame.image.load("").convert_alpha()
 
